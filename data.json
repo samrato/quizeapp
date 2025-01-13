@@ -1,0 +1,35 @@
+[{
+    "question": "Who is the founder of Facebook?",
+    "A": "Elon Musk",
+    "B": "Mark Zuckerberg",
+    "C": "Ritesh Agarwal",
+    "D": "Steve Jobs",
+    "answer": "B"
+  },
+  {
+    "question": "Who is the Father of the Computer?",
+    "A": "Elon Musk",
+    "B": "Steve Jobs",
+    "C": "Ritesh Agarwal",
+    "D": "Charles Babbage",
+    "answer": "D"
+  }  
+  ,
+  {
+    "question": "What is the full form of E-Mail?",
+    "A": "Electric Mail",
+    "B": "Exchange Mail",
+    "C": "Electronic Mail",
+    "D": "Engagement Mail",
+    "answer": "C"
+  }  
+  ,
+  {
+    "question": "In the virtual world, WWW stands for?",
+    "A": "World Without Windows",
+    "B": "World Wide Web",
+    "C": "World Wide Web Applications",
+    "D": "World Wide Warehouse",
+    "answer": "B"
+  }  
+]
