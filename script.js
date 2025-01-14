@@ -1,22 +1,39 @@
-import data from './data.json' assert { type: 'json' };
+console.log("Script Loaded"); // Debugging
 
-const noOfQuestion = data.length;
+let data = []; // Placeholder for quiz data
+let currentIndex = 0;
+let score = 0;
+
 const eachQuestion = document.getElementById("question");
 const qa = document.getElementById("qa");
 const answerButtons = document.getElementById("answerbtn");
 const nextButton = document.getElementById("next-btn");
 
-let currentIndex = 0;
-let score = 0;
+// Fetch JSON file
+fetch('./data.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(json => {
+        data = json; // Load quiz data
+        console.log("Quiz Data Loaded", data);
+        startQuiz();
+    })
+    .catch(error => console.error("Failed to load JSON:", error));
 
 // Start Quiz
 function startQuiz() {
+    console.log("Start Quiz Initialized");
     nextButton.textContent = "Play";
     nextButton.addEventListener("click", handleNextButton);
 }
 
 // Show Each Question
 function showEachQuestion() {
+    console.log("Showing Question:", currentIndex + 1); // Debugging
     resetState();
     qa.style.display = "block";
 
@@ -56,7 +73,6 @@ function selectAnswer(e) {
         selectedButton.classList.add("incorrect");
     }
 
-    // Highlight correct answer and disable all buttons
     Array.from(answerButtons.children).forEach(button => {
         if (button.textContent === correctAnswer) {
             button.classList.add("correct");
@@ -69,11 +85,11 @@ function selectAnswer(e) {
 
 // Handle Next Button
 function handleNextButton() {
+    console.log("Next Button Clicked"); // Debugging
     if (nextButton.textContent === "Play") {
-        // Initialize quiz on first click
         nextButton.textContent = "Next";
         showEachQuestion();
-    } else if (currentIndex < noOfQuestion - 1) {
+    } else if (currentIndex < data.length - 1) {
         currentIndex++;
         showEachQuestion();
     } else {
@@ -84,14 +100,8 @@ function handleNextButton() {
 // Show Score
 function showScore() {
     resetState();
-    eachQuestion.textContent = "";
-    const scoreContainer = document.createElement("div");
-    scoreContainer.classList.add("score");
-    scoreContainer.innerHTML = `<h1>Your Score: ${score}/${noOfQuestion}</h1>`;
-
-    // Color the score based on performance
-    scoreContainer.style.color = (score / noOfQuestion) < 0.4 ? "red" : "green";
-    eachQuestion.appendChild(scoreContainer);
+    const scoreMessage = `<h1>Your Score: ${score}/${data.length}</h1>`;
+    eachQuestion.innerHTML = scoreMessage;
 
     nextButton.textContent = "Play Again";
     nextButton.style.display = "block";
@@ -102,10 +112,8 @@ function showScore() {
 function resetQuiz() {
     currentIndex = 0;
     score = 0;
-    nextButton.textContent = "Play";
+    nextButton.textContent = "Next";
     qa.style.display = "none";
     resetState();
+    handleNextButton(); // Start the quiz again
 }
-
-// Initialize the Quiz
-startQuiz();
