@@ -6,90 +6,106 @@ const qa = document.getElementById("qa");
 const answerButtons = document.getElementById("answerbtn");
 const nextButton = document.getElementById("next-btn");
 
-
-let currentIndex = -1;
+let currentIndex = 0;
 let score = 0;
 
-function startQuize(){
-    nextButton.addEventListener("click",showeachQuestions );
+// Start Quiz
+function startQuiz() {
+    nextButton.textContent = "Play";
+    nextButton.addEventListener("click", handleNextButton);
 }
 
-function showeachQuestions(){
+// Show Each Question
+function showEachQuestion() {
     resetState();
-    nextButton.innerHTML = "Next";
     qa.style.display = "block";
-    let currentQues = data[currentIndex];
-    eachQuestion.innerHTML = (currentIndex+1)+". "+ currentQues.question;
-    for(let i=0;i<4;i++){
+
+    const currentQues = data[currentIndex];
+    eachQuestion.textContent = `${currentIndex + 1}. ${currentQues.question}`;
+    for (let i = 0; i < 4; i++) {
         const button = document.createElement("button");
-        let optionNumber = String.fromCharCode(65+i);
-        button.innerHTML = data[currentIndex][optionNumber];
+        const optionNumber = String.fromCharCode(65 + i); // 'A', 'B', 'C', 'D'
+        button.textContent = currentQues[optionNumber];
         button.classList.add("btn");
         answerButtons.appendChild(button);
         button.addEventListener("click", selectAnswer);
     }
+
+    nextButton.style.display = "none";
 }
 
-function resetState(){
-    while(answerButtons.firstChild){
-        nextButton.style.display="none";
+// Reset State
+function resetState() {
+    eachQuestion.textContent = "";
+    while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
-        console.log("Reset State called");
     }
+    nextButton.style.display = "none";
 }
 
-function selectAnswer(e){
-    const selectButton = e.target;
+// Select Answer
+function selectAnswer(e) {
+    const selectedButton = e.target;
     const correctOption = data[currentIndex].answer;
     const correctAnswer = data[currentIndex][correctOption];
-    if(correctAnswer===selectButton.textContent){
-        selectButton.classList.add("correct");
+
+    if (selectedButton.textContent === correctAnswer) {
+        selectedButton.classList.add("correct");
         score++;
+    } else {
+        selectedButton.classList.add("incorrect");
     }
-    else{
-        selectButton.classList.add("incorrect");
-    }
+
+    // Highlight correct answer and disable all buttons
     Array.from(answerButtons.children).forEach(button => {
-        if(button.textContent===correctAnswer){
+        if (button.textContent === correctAnswer) {
             button.classList.add("correct");
         }
-        button.disabled=true;
+        button.disabled = true;
     });
 
     nextButton.style.display = "block";
 }
 
-function handleNextButton(){
-    currentIndex++;
-    (currentIndex<data.length)?showeachQuestions():showScore();
+// Handle Next Button
+function handleNextButton() {
+    if (nextButton.textContent === "Play") {
+        // Initialize quiz on first click
+        nextButton.textContent = "Next";
+        showEachQuestion();
+    } else if (currentIndex < noOfQuestion - 1) {
+        currentIndex++;
+        showEachQuestion();
+    } else {
+        showScore();
+    }
 }
 
-function showScore(){
-    resetState(); //delete previous question
-    nextButton.style.display = "block";
-    nextButton.innerHTML = "Play Again";
-    eachQuestion.innerHTML= ``;
-    var scoreContainer = document.createElement('div');
-    eachQuestion.appendChild(scoreContainer);
+// Show Score
+function showScore() {
+    resetState();
+    eachQuestion.textContent = "";
+    const scoreContainer = document.createElement("div");
     scoreContainer.classList.add("score");
-    scoreContainer.innerHTML= `<h1>Your Score : ${score} </h1>`;
-    if((score/noOfQuestion)<0.4)
-        scoreContainer.style.color = "red";
-    else
-        scoreContainer.style.color = "green";
+    scoreContainer.innerHTML = `<h1>Your Score: ${score}/${noOfQuestion}</h1>`;
 
+    // Color the score based on performance
+    scoreContainer.style.color = (score / noOfQuestion) < 0.4 ? "red" : "green";
+    eachQuestion.appendChild(scoreContainer);
+
+    nextButton.textContent = "Play Again";
+    nextButton.style.display = "block";
+    nextButton.addEventListener("click", resetQuiz);
 }
 
-//Starting from when we click on Play Now Button
-nextButton.addEventListener("click", ()=>{
-    //go to next question
-    if(currentIndex<data.length)
-        handleNextButton();
-    else
-    {
-        //if all questions done
-        currentIndex = 0;
-        score = 0;
-        showeachQuestions();
-    };
-});
+// Reset Quiz
+function resetQuiz() {
+    currentIndex = 0;
+    score = 0;
+    nextButton.textContent = "Play";
+    qa.style.display = "none";
+    resetState();
+}
+
+// Initialize the Quiz
+startQuiz();
