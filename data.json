@@ -1,43 +1,170 @@
-[{
-  "question": "Who is the founder of this web app?",
-  "A": "Elon Musk",
-  "B": "Willington juma",
-  "C": "Ritesh Agarwal",
-  "D": "Steve Jobs",
-  "answer": "B"
-},
+[
   {
-    "question": "Who is the founder of Facebook?",
-    "A": "Elon Musk",
-    "B": "Mark Zuckerberg",
-    "C": "Ritesh Agarwal",
-    "D": "Steve Jobs",
-    "answer": "B"
+      "question": "Who is the founder of this web app?",
+      "A": "Elon Musk",
+      "B": "Willington Juma",
+      "C": "Ritesh Agarwal",
+      "D": "Steve Jobs",
+      "answer": "B"
   },
   {
-    "question": "Who is the Father of the Computer?",
-    "A": "Elon Musk",
-    "B": "Steve Jobs",
-    "C": "Ritesh Agarwal",
-    "D": "Charles Babbage",
-    "answer": "D"
-  }  
-  ,
+      "question": "What is the correct syntax to output 'Hello World' in Python?",
+      "A": "echo 'Hello World'",
+      "B": "printf('Hello World')",
+      "C": "print('Hello World')",
+      "D": "console.log('Hello World')",
+      "answer": "C"
+  },
   {
-    "question": "What is the full form of E-Mail?",
-    "A": "Electric Mail",
-    "B": "Exchange Mail",
-    "C": "Electronic Mail",
-    "D": "Engagement Mail",
-    "answer": "C"
-  }  
-  ,
+      "question": "Which data type is used to store decimal values in Python?",
+      "A": "int",
+      "B": "str",
+      "C": "float",
+      "D": "list",
+      "answer": "C"
+  },
   {
-    "question": "In the virtual world, WWW stands for?",
-    "A": "World Without Windows",
-    "B": "World Wide Web",
-    "C": "World Wide Web Applications",
-    "D": "World Wide Warehouse",
-    "answer": "B"
-  }  
+      "question": "How do you start a comment in Python?",
+      "A": "// comment",
+      "B": "# comment",
+      "C": "/* comment */",
+      "D": "-- comment",
+      "answer": "B"
+  },
+  {
+      "question": "Which operator is used to multiply numbers in Python?",
+      "A": "+",
+      "B": "-",
+      "C": "*",
+      "D": "/",
+      "answer": "C"
+  },
+  {
+      "question": "Which method is used to find the length of a list in Python?",
+      "A": "list.length()",
+      "B": "len(list)",
+      "C": "list.size()",
+      "D": "length(list)",
+      "answer": "B"
+  },
+  {
+      "question": "What is the result of 5 // 2 in Python?",
+      "A": "2",
+      "B": "2.5",
+      "C": "3",
+      "D": "1",
+      "answer": "A"
+  },
+  {
+      "question": "What is the correct way to create a dictionary in Python?",
+      "A": "{key1: value1, key2: value2}",
+      "B": "key1: value1, key2: value2",
+      "C": "dict(key1=value1, key2=value2)",
+      "D": "['key1': 'value1', 'key2': 'value2']",
+      "answer": "A"
+  },
+  {
+      "question": "Which function is used to read input from the user in Python?",
+      "A": "input()",
+      "B": "read()",
+      "C": "get_input()",
+      "D": "scanf()",
+      "answer": "A"
+  },
+  {
+      "question": "What does the 'break' statement do in Python?",
+      "A": "Exits the current loop",
+      "B": "Skips the current iteration of the loop",
+      "C": "Exits the program",
+      "D": "None of the above",
+      "answer": "A"
+  },
+  {
+      "question": "Which of the following is not a valid Python data type?",
+      "A": "int",
+      "B": "string",
+      "C": "bool",
+      "D": "character",
+      "answer": "D"
+  },
+  {
+      "question": "Which function is used to convert a string to lowercase in Python?",
+      "A": "str.lower()",
+      "B": "str.upcase()",
+      "C": "string.toLowerCase()",
+      "D": "str.toLower()",
+      "answer": "A"
+  },
+  {
+      "question": "What is the output of print(3 ** 2) in Python?",
+      "A": "9",
+      "B": "6",
+      "C": "5",
+      "D": "3",
+      "answer": "A"
+  },
+  {
+      "question": "What is the method used to remove the last element of a list in Python?",
+      "A": "list.pop()",
+      "B": "list.remove()",
+      "C": "list.delete()",
+      "D": "list.deleteLast()",
+      "answer": "A"
+  },
+  {
+      "question": "Which keyword is used to create a function in Python?",
+      "A": "def",
+      "B": "function",
+      "C": "func",
+      "D": "create",
+      "answer": "A"
+  },
+  {
+      "question": "Which of the following is used for iteration over a sequence in Python?",
+      "A": "for",
+      "B": "while",
+      "C": "repeat",
+      "D": "loop",
+      "answer": "A"
+  },
+  {
+      "question": "What is the return type of the input() function in Python?",
+      "A": "str",
+      "B": "int",
+      "C": "bool",
+      "D": "float",
+      "answer": "A"
+  },
+  {
+      "question": "How do you define a class in Python?",
+      "A": "class MyClass()",
+      "B": "define MyClass",
+      "C": "class MyClass:",
+      "D": "MyClass class",
+      "answer": "C"
+  },
+  {
+      "question": "What is the function used to convert a string to an integer in Python?",
+      "A": "str()",
+      "B": "int()",
+      "C": "to_int()",
+      "D": "convert()",
+      "answer": "B"
+  },
+  {
+      "question": "What will be the output of print(10 % 3) in Python?",
+      "A": "1",
+      "B": "3",
+      "C": "0",
+      "D": "2",
+      "answer": "D"
+  },
+  {
+      "question": "Which of the following is an immutable data type in Python?",
+      "A": "list",
+      "B": "set",
+      "C": "tuple",
+      "D": "dict",
+      "answer": "C"
+  }
 ]
