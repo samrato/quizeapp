@@ -15,9 +15,10 @@ A simple, elegant Quiz Application built by [Your Name], designed to test knowle
 
     ## 🖼️ Frontend Preview
 
-This is how the frontend of **quiz app* looks and works:
+## 🖼️ This is how the frontend of **Quiz App** looks and works:
 
-![quiz app Frontend Preview](quiz app.jpg)
+![Quiz App Frontend Preview](./quiz-app.jpg)
+
 
 
 ## 🏗️ Tech Stack
