@@ -17,7 +17,7 @@ A simple, elegant Quiz Application built by [Your Name], designed to test knowle
 
 ## 🖼️ This is how the frontend of **Quiz App** looks and works:
 
-![Quiz App Frontend Preview](./quiz-app.jpg)
+![Quiz App Frontend Preview](ima/datas.jpg)
 
 
 
